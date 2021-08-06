@@ -4,6 +4,11 @@ import styled from '@emotion/styled'
 const ResultadoDiv = styled.div`
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #66a2fe;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
 
 `
 const Info = styled.p`
