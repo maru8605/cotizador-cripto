@@ -22,7 +22,7 @@ const Boton = styled.input`
         cursor: pointer;
     }
 `;
-const Form = () => {
+const Form = ( {guardarMoneda, guardarCriptomoneda} ) => {
 
 // guardar lista cripto
     const [listaCripto, guardarCripto] = useState([]);
@@ -38,7 +38,7 @@ const Form = () => {
 
     const [money, SelectMoney] = useMoney('Elige tu moneda', '', MONEDAS)
 
-    const [criptomoneda, SelectCripto] = useCriptomoneda('Elige tu criptomoneda', '', listaCripto)
+    const [cripto, SelectCripto] = useCriptomoneda('Elige tu criptomoneda', '', listaCripto)
 
     useEffect(() => {
        const consultarApi = async() => {
@@ -53,12 +53,14 @@ const Form = () => {
     //evento submit
     const cotizarMoneda = e =>  {
         e.preventDefault()
-        if( money === '' || criptomoneda === ''){
+        if( money === '' || cripto === ''){
             setError(true)
             return
         }
         // datos al comp principal
         setError(false)
+        guardarMoneda(money)
+        guardarCriptomoneda(cripto)
     }
 
     return (
